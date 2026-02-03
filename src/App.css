@@ -1,0 +1,247 @@
+/* App-specific styles */
+
+/* Smooth page transitions */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.page-transition-exit {
+  opacity: 1;
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
+}
+
+/* Card hover effects */
+.hover-lift {
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px -8px rgba(0, 0, 0, 0.15);
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #f59e0b 0%, #ea580c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Glass morphism effect */
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Animated background gradient */
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animated-gradient {
+  background-size: 200% 200%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+/* Pulse animation for notifications */
+@keyframes notification-pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.notification-pulse {
+  animation: notification-pulse 2s ease-in-out infinite;
+}
+
+/* Stagger animation for lists */
+.stagger-item {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.stagger-item.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* Custom button styles */
+.btn-primary {
+  @apply px-6 py-3 bg-gradient-to-r from-amber-500 to-orange-500 text-white font-semibold rounded-xl shadow-lg;
+  @apply hover:from-amber-600 hover:to-orange-600 hover:shadow-xl;
+  @apply active:scale-95 transition-all duration-200;
+}
+
+.btn-secondary {
+  @apply px-6 py-3 bg-white text-gray-700 font-semibold rounded-xl border-2 border-gray-200;
+  @apply hover:border-amber-300 hover:bg-amber-50;
+  @apply active:scale-95 transition-all duration-200;
+}
+
+/* Section spacing */
+.section-padding {
+  @apply py-12 px-4 sm:px-6 lg:px-8;
+}
+
+/* Container max width */
+.container-max {
+  @apply max-w-7xl mx-auto;
+}
+
+/* Medication card styles */
+.medication-card {
+  @apply relative overflow-hidden;
+}
+
+.medication-card::before {
+  content: '';
+  @apply absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-green-400 to-green-600;
+}
+
+/* Routine card styles */
+.routine-card {
+  @apply relative overflow-hidden;
+}
+
+.routine-card::before {
+  content: '';
+  @apply absolute left-0 top-0 bottom-0 w-1 bg-gradient-to-b from-orange-400 to-orange-600;
+}
+
+/* Memory card styles */
+.memory-card-item {
+  @apply relative overflow-hidden rounded-2xl bg-white shadow-md;
+  @apply hover:shadow-xl transition-all duration-300;
+}
+
+.memory-card-item:hover {
+  transform: translateY(-4px) rotate(1deg);
+}
+
+/* Activity card styles */
+.activity-card {
+  @apply relative overflow-hidden;
+}
+
+.activity-card::after {
+  content: '';
+  @apply absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 transition-opacity duration-300;
+}
+
+.activity-card:hover::after {
+  @apply opacity-100;
+}
+
+/* Progress bar animation */
+@keyframes progress-fill {
+  from {
+    width: 0%;
+  }
+}
+
+.progress-animated {
+  animation: progress-fill 1s ease-out forwards;
+}
+
+/* Checkmark animation */
+@keyframes checkmark {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.checkmark-animated {
+  animation: checkmark 0.3s ease-out forwards;
+}
+
+/* Floating elements */
+.floating {
+  animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* Ripple effect */
+.ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+.ripple::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.3) 10%, transparent 10.01%);
+  background-repeat: no-repeat;
+  background-position: 50%;
+  transform: scale(10, 10);
+  opacity: 0;
+  transition: transform 0.5s, opacity 0.5s;
+}
+
+.ripple:active::after {
+  transform: scale(0, 0);
+  opacity: 0.3;
+  transition: 0s;
+}
+
+/* Safe area for mobile */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .safe-area-bottom {
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+}
+
+/* Print styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  body {
+    background: white !important;
+  }
+}

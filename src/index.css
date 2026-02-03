@@ -1,0 +1,177 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 45 30% 97%;
+    --foreground: 30 15% 20%;
+    --card: 45 30% 99%;
+    --card-foreground: 30 15% 20%;
+    --popover: 45 30% 99%;
+    --popover-foreground: 30 15% 20%;
+    --primary: 25 75% 47%;
+    --primary-foreground: 45 30% 97%;
+    --secondary: 180 25% 45%;
+    --secondary-foreground: 45 30% 97%;
+    --muted: 45 20% 92%;
+    --muted-foreground: 30 10% 45%;
+    --accent: 45 80% 60%;
+    --accent-foreground: 30 15% 20%;
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 45 30% 97%;
+    --border: 45 20% 88%;
+    --input: 45 20% 88%;
+    --ring: 25 75% 47%;
+    --radius: 0.75rem;
+    --sidebar-background: 45 30% 95%;
+    --sidebar-foreground: 30 15% 25%;
+    --sidebar-primary: 25 75% 47%;
+    --sidebar-primary-foreground: 45 30% 97%;
+    --sidebar-accent: 45 25% 90%;
+    --sidebar-accent-foreground: 30 15% 20%;
+    --sidebar-border: 45 20% 88%;
+    --sidebar-ring: 25 75% 47%;
+    --success: 145 55% 42%;
+    --warning: 38 90% 55%;
+    --info: 200 70% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .large-touch-target {
+    min-height: 48px;
+    min-width: 48px;
+  }
+  .high-contrast {
+    contrast: 1.2;
+  }
+}
+
+/* Accessibility enhancements for dementia users */
+.dementia-friendly {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  letter-spacing: 0.01em;
+}
+
+.dementia-friendly h1,
+.dementia-friendly h2,
+.dementia-friendly h3 {
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* Large, clear buttons */
+.btn-large {
+  @apply px-8 py-4 text-lg font-semibold rounded-xl;
+  min-height: 56px;
+}
+
+/* Clear visual feedback */
+.interactive-element {
+  @apply transition-all duration-200;
+}
+
+.interactive-element:active {
+  transform: scale(0.98);
+}
+
+.interactive-element:focus-visible {
+  @apply ring-2 ring-offset-2 ring-primary;
+}
+
+/* Memory card styles */
+.memory-card {
+  @apply bg-white rounded-2xl shadow-lg border-2 border-transparent;
+  transition: all 0.3s ease;
+}
+
+.memory-card:hover {
+  @apply border-primary/30 shadow-xl;
+  transform: translateY(-2px);
+}
+
+/* Gentle animations */
+@keyframes gentle-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.gentle-pulse {
+  animation: gentle-pulse 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.float-animation {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Progress ring animation */
+@keyframes progress-ring {
+  from {
+    stroke-dashoffset: 283;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-muted rounded-full;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/30 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary/50;
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  @apply outline-none ring-2 ring-primary ring-offset-2;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
