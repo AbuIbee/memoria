@@ -7,6 +7,7 @@ import {
 } from 'lucide-react';
 import { toast } from 'sonner';
 import { Toaster } from 'sonner';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 
 import { AuthProvider, useAuth } from '@/hooks/useSupabaseAuth';
 import { RemindersProvider, useReminders } from '@/hooks/useReminders';
@@ -523,6 +524,7 @@ function App() {
     <AuthProvider>
       <RemindersProvider>
         <AppContent />
+        <SpeedInsights />
       </RemindersProvider>
     </AuthProvider>
   );
