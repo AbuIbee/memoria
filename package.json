@@ -3,16 +3,12 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "engines": {
-    "node": "20.x",
-    "npm": "10.x"
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
   },
- "scripts": {
-  "dev": "vite",
-  "build": "tsc && vite build",
-  "vercel-build": "npm run build && xcopy /E /I dist\\* . && rmdir /S /Q dist",
-  "preview": "vite preview"
-},
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
     "@radix-ui/react-accordion": "^1.2.12",
@@ -52,9 +48,9 @@
     "input-otp": "^1.4.2",
     "lucide-react": "^0.562.0",
     "next-themes": "^0.4.6",
-    "react": "^18.2.0",
+    "react": "^19.2.0",
     "react-day-picker": "^9.13.0",
-    "react-dom": "^18.2.0",
+    "react-dom": "^19.2.0",
     "react-hook-form": "^7.70.0",
     "react-resizable-panels": "^4.2.2",
     "recharts": "^2.15.4",
@@ -67,8 +63,8 @@
   "devDependencies": {
     "@eslint/js": "^9.39.1",
     "@types/node": "^24.10.1",
-    "@types/react": "^18.2.45",
-    "@types/react-dom": "^18.2.18",
+    "@types/react": "^19.2.5",
+    "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^5.1.1",
     "autoprefixer": "^10.4.23",
     "eslint": "^9.39.1",
